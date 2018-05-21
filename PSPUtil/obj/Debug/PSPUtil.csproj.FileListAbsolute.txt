@@ -1,0 +1,6 @@
+F:\MyNewDll\PSPUtil.dll
+F:\MyNewDll\PSPUtil.pdb
+F:\Change2Dll\PSPUtil\PSPUtil\obj\Debug\PSPUtil.csprojResolveAssemblyReference.cache
+F:\Change2Dll\PSPUtil\PSPUtil\obj\Debug\PSPUtil.dll
+F:\Change2Dll\PSPUtil\PSPUtil\obj\Debug\PSPUtil.pdb
+F:\Change2Dll\PSPUtil\PSPUtil\obj\Debug\PSPUtil.csproj.CoreCompileInputs.cache
