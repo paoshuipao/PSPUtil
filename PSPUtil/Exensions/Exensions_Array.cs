@@ -5,7 +5,7 @@ using PSPUtil.StaticUtil;
 
 namespace PSPUtil.Exensions
 {
-    public static class Exensions_Array                          // 数组的扩展方法
+    public static class Exensions_Array                                         // 数组的扩展方法
     {
 
         public static T[] AddArray<T>(                           //在一个数组上再添加另一个数组
