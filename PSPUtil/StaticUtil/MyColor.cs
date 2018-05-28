@@ -20,7 +20,7 @@ namespace PSPUtil.StaticUtil
     public static class MyColor
     {
 
-        public static Color GetColor(string str)                 //根据 "#FFFFFF" 或者 "#000"格式来获取Color
+        public static Color GetColor(string str)                 //根据 "#FFFFFFFF" 或者 "#FFFF"格式来获取Color
         {
             if (ColorRegex.IsMatch(str))
             {
@@ -146,7 +146,7 @@ namespace PSPUtil.StaticUtil
 
         #region 私有
 
-        private readonly static Regex ColorRegex = new Regex(@"^#([0-9a-fA-F]{8}|[0-9a-fA-F]{4})$", RegexOptions.ExplicitCapture);
+        private static readonly Regex ColorRegex = new Regex(@"^#([0-9a-fA-F]{8}|[0-9a-fA-F]{4})$", RegexOptions.ExplicitCapture);
 
         private static void GetRGB(ref int num)
         {

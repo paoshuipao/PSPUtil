@@ -245,7 +245,6 @@ namespace PSPUtil.Exensions
         }
 
 
-
         public static string AddColor(this string str, MyEnumColor color, bool isAddSpaceLine)
         {
             StringBuilder sb = new StringBuilder();
@@ -617,9 +616,6 @@ namespace PSPUtil.Exensions
 
         #region 私有
         private static byte[] Keys = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
-
-
-
 
 
         /// <summary>

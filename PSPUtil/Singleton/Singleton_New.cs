@@ -26,7 +26,8 @@ namespace PSPUtil.Singleton
         {
             if (null != m_Instance)
             {
-                MyLog.Red("已存在的单例又再添加？ ——" + typeof(T));
+                MyLog.Error("已存在的单例又再添加？ ——" + typeof(T));
+                return;
             }
             Init();
         }

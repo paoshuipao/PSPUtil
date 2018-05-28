@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace PSPUtil.StaticUtil
 {
-    public static class MyAssetUtil
+    public static class MyAssetUtil                                     
     {
 
         public static string GetApplicationDataPathNoAssets()    // E://abc/Assets ->E://abc/
@@ -14,6 +14,7 @@ namespace PSPUtil.StaticUtil
             string dataPath = Application.dataPath;
             return dataPath.Remove(dataPath.Length - 7, 7);
         }
+
 
         // 截取Assets后面的路径：fullName:E://abc/Assets/xx ->Assets/xx  返回：Assets/xx
         public static string GetAssetsBackPath(string fullName)
@@ -26,6 +27,7 @@ namespace PSPUtil.StaticUtil
             return fullName.Substring(tmpCount, fullName.Length - tmpCount);
         }
 
+
         public static string[] GetAssetsBackPath(string[] fullNames)
         {
             string[] tmp = new string[fullNames.Length];
@@ -35,6 +37,8 @@ namespace PSPUtil.StaticUtil
             }
             return tmp;
         }
+
+
 
 
         // 截取Assets前面的路径：fullName:E://abc/Assets/xx ->Assets/xx  返回：E://abc/
@@ -106,12 +110,6 @@ namespace PSPUtil.StaticUtil
         {
             return Application.dataPath.TrimEnd("Assets".ToCharArray()) + assetPath;
         }
-
-
-
-
-
-
 
 
     }

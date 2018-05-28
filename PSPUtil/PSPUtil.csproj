@@ -47,11 +47,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attribute\MyAddButtonAttribute.cs" />
     <Compile Include="Attribute\MyHeadAttribute.cs" />
-    <Compile Include="Attribute\MyHideAttribute.cs" />
-    <Compile Include="Attribute\MyUseColorAttribute.cs" />
     <Compile Include="Ctrl_Coroutine.cs" />
+    <Compile Include="Exensions\Exensions_List.cs" />
     <Compile Include="Exensions\Exensions_String.cs" />
     <Compile Include="Exensions\Exensions_Transform.cs" />
     <Compile Include="MyComponent\Func_Base.cs" />
@@ -62,15 +60,15 @@
     <Compile Include="StaticUtil\MyEventCenter.cs" />
     <Compile Include="StaticUtil\MyGetComponent.cs" />
     <Compile Include="StaticUtil\MyIO.cs" />
-    <Compile Include="ErrorException\Exception_DictionaryNoKey.cs" />
-    <Compile Include="ErrorException\Exception_ResNoPath.cs" />
+    <Compile Include="ErrorException\Error_DictionaryNoKey.cs" />
+    <Compile Include="ErrorException\Error_ResourcesNoPath.cs" />
     <Compile Include="Exensions\Exensions_Array.cs" />
     <Compile Include="Exensions\Exensions_Dictionary.cs" />
     <Compile Include="StaticUtil\MyAssetUtil.cs" />
     <Compile Include="StaticUtil\MyColor.cs" />
     <Compile Include="StaticUtil\MyGUI.cs" />
     <Compile Include="StaticUtil\MyLog.cs" />
-    <Compile Include="ErrorException\Exception_SwitchEnumNoDefines.cs" />
+    <Compile Include="ErrorException\Error_SwitchEnumNoDefines.cs" />
     <Compile Include="StaticUtil\MyRandom.cs" />
     <Compile Include="StaticUtil\MyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

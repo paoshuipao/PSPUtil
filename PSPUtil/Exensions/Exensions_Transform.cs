@@ -2,7 +2,7 @@
 
 namespace PSPUtil.Exensions
 {
-    public static class Exensions_Transform
+    public static class Exensions_Transform                                        
     {
 
         /// <summary>
@@ -13,7 +13,7 @@ namespace PSPUtil.Exensions
         /// <param name="forward">前方多少米</param>
         /// <param name="ruQinZhe">入侵者</param>
         /// <returns></returns>
-        public static bool AttackRange(this Transform ranger, float rightRang, float forward, Transform ruQinZhe)
+        public static bool IsAttackRange(this Transform ranger, float rightRang, float forward, Transform ruQinZhe)
         {
             byte tmpCount = 0;
             Vector3 ranger2RuQinZhe = ruQinZhe.position - ranger.position; //范围者指向入侵者的向量

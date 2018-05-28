@@ -1,4 +1,4 @@
-﻿using PSPUtil.ErrorException;
+﻿using PSPUtil.StaticUtil;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -72,6 +72,11 @@ namespace PSPUtil.Singleton
 
         void Start()
         {
+            if (null == m_Instance)
+            {
+                MyLog.Error("Mono 单例类不需要手动添加到场景中！—— " + typeof(T));
+                return;
+            }
             OnStart();
         }
 

@@ -55,12 +55,6 @@ namespace PSPUtil.Exensions
             }
         }
 
-        // 集合 for 每次加2 
-        public static void ForAdd2<T>(this List<T> list, [NotNull]Action<T, T> twoValueAction, [NotNull]Action<T> oneValueAction)
-        {
-            ForAdd2(list.ToArray(), twoValueAction, oneValueAction);
-        }
-
 
 
     }

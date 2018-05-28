@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PSPUtil.Exensions
 {
-    public static class Exensions_GameObject
+    public static class Exensions_GameObject                                   // 游戏对象 扩展方法 
     {
 
         public static T GetOrAddComponent<T>(this GameObject go) // 获得或者添加
