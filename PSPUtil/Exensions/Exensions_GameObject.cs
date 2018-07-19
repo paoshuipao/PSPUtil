@@ -17,18 +17,20 @@ namespace PSPUtil.Exensions
             return tmp;
         }
 
-
-
         public static T GetComponentNo2Log<T>(this GameObject go)// 获得这个组件，没有打Log
             where T : Component
         {
             T tmp = go.GetComponent<T>();
             if (null == tmp)
             {
-                MyLog.Red("没有添加这个组件 —— "+typeof(T),go);
+                MyLog.Red("没有添加过这个组件 —— " + typeof(T),go);
             }
             return tmp;
         }
+
+
+
+
 
     }
 }

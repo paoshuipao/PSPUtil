@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PSPUtil.StaticUtil;
+using UnityEngine;
 
 namespace PSPUtil.Exensions
 {
@@ -55,6 +56,18 @@ namespace PSPUtil.Exensions
         }
 
 
+
+
+        public static T GetComponentNo2Log<T>(this Transform transform)    // 获得这个组件，没有打Log
+            where T : Component
+        {
+            T tmp = transform.GetComponent<T>();
+            if (null == tmp)
+            {
+                MyLog.Red("没有添加过这个组件 —— " + typeof(T), transform);
+            }
+            return tmp;
+        }
 
     }
 }

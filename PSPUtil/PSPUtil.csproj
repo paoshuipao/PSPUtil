@@ -52,13 +52,12 @@
     <Compile Include="Exensions\Exensions_List.cs" />
     <Compile Include="Exensions\Exensions_String.cs" />
     <Compile Include="Exensions\Exensions_Transform.cs" />
-    <Compile Include="MyComponent\Func_Base.cs" />
-    <Compile Include="MyComponent\Func_UI.cs" />
+    <Compile Include="Obsert\MyComponent\Func_Base.cs" />
+    <Compile Include="Obsert\MyComponent\Func_UI.cs" />
     <Compile Include="Exensions\Exensions_GameObject.cs" />
     <Compile Include="ShuJuJieGuo\MyDictionary.cs" />
     <Compile Include="ShuJuJieGuo\MyHuoCheTou.cs" />
-    <Compile Include="StaticUtil\MyEventCenter.cs" />
-    <Compile Include="StaticUtil\MyGetComponent.cs" />
+    <Compile Include="Obsert\MyGetComponent.cs" />
     <Compile Include="StaticUtil\MyIO.cs" />
     <Compile Include="ErrorException\Error_DictionaryNoKey.cs" />
     <Compile Include="ErrorException\Error_ResourcesNoPath.cs" />
@@ -74,9 +73,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton\Singleton_Mono.cs" />
     <Compile Include="Singleton\Singleton_New.cs" />
-    <Compile Include="StaticUtil\MyResigterUIEvent.cs" />
+    <Compile Include="Obsert\MyResigterUIEvent.cs" />
     <Compile Include="StaticUtil\MyWebDownLoader.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

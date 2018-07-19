@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿/*
+using System.Collections.Generic;
 using PSPUtil.MyComponent;
 using UnityEngine;
 
@@ -89,3 +90,4 @@ namespace PSPUtil.StaticUtil
 
 
 }
+*/

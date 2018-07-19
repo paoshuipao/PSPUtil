@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -266,3 +267,4 @@ namespace PSPUtil.MyComponent
     
 }
 
+*/

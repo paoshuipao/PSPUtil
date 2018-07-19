@@ -95,14 +95,13 @@ namespace PSPUtil.StaticUtil
 
         public static void Error(object str,Object obj = null)
         {
-            string tmp = (null == obj) ? "null" : obj.ToString();
             if (null != obj)
             {
-                Debug.LogError(tmp.AddRed(true), obj);
+                Debug.LogError(str.ToString().AddRed(true), obj);
             }
             else
             {
-                Debug.LogError(tmp.AddRed(true));
+                Debug.LogError(str.ToString().AddRed(true));
             }
         }
 

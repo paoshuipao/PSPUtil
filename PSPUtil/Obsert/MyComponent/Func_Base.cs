@@ -1,4 +1,5 @@
-﻿using PSPUtil.Exensions;
+﻿/*
+using PSPUtil.Exensions;
 using PSPUtil.StaticUtil;
 using UnityEngine;
 
@@ -75,3 +76,4 @@ namespace PSPUtil.MyComponent
 
     }
 }
+*/

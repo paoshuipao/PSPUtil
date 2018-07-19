@@ -287,6 +287,8 @@ namespace PSPUtil.StaticUtil
         }
 #endif
 
+
+
         // 返回字符串
         public static IEnumerator GetText(string url, Action<string> onFinish)
         {
@@ -307,6 +309,8 @@ namespace PSPUtil.StaticUtil
                 }
             }
         }
+
+
 
         // 记录在文本中
         public static IEnumerator GetText(string url, string txtPath)

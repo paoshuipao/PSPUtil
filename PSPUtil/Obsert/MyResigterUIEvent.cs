@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using PSPUtil.MyComponent;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -156,3 +157,4 @@ namespace PSPUtil.StaticUtil
 
 }
 
+*/

@@ -4,6 +4,27 @@ using UnityEngine.SceneManagement;
 
 namespace PSPUtil.Singleton
 {
+
+    static class ManagerBase
+    {
+        private static Transform m_Manager;
+
+        public static Transform Manager
+        {
+            get
+            {
+                if (m_Manager == null)
+                {
+                    GameObject parent = new GameObject("Singleton");
+                    Object.DontDestroyOnLoad(parent);
+                    m_Manager = parent.transform;
+                }
+
+                return m_Manager;
+            }
+        }
+    }
+
     public abstract class Singleton_Mono<T> : MonoBehaviour       //继承Mono的 单例
         where T : MonoBehaviour
     {
@@ -40,21 +61,30 @@ namespace PSPUtil.Singleton
             {
                 if (null == m_Instance)
                 {
-                    GameObject parent= GameObject.Find("Manager");
-                    if (null == parent)
-                    {
-                        parent=new GameObject("Manager");
-                        DontDestroyOnLoad(parent);
-                    }
+        
                     GameObject go= new GameObject(typeof(T).Name);
-                    go.transform.SetParent(parent.transform);
+                    go.transform.SetParent(ManagerBase.Manager);
                     m_Instance = go.AddComponent<T>();
                 }
                 return m_Instance;
             }
         }
 
+
+
+        public void Clear()
+        {
+            OnDestroy2Do();
+            SceneManager.activeSceneChanged -= E_OnSceneChanged;
+            DestroyImmediate(this.gameObject);
+            m_Instance = null;
+            m_Go = null;
+            m_Transform = null;
+        }
+
+
         #region 私有
+
         private static T m_Instance = null;
         private GameObject m_Go;
         private Transform m_Transform;
@@ -62,11 +92,14 @@ namespace PSPUtil.Singleton
 
         void Awake()
         {
-            SceneManager.activeSceneChanged += (scene1, scene2) =>
-            {
-                OnJumpScene();
-            };
+            SceneManager.activeSceneChanged += E_OnSceneChanged;
             OnAwake();
+        }
+
+
+        private void E_OnSceneChanged(Scene scene1,Scene scene2)
+        {
+            OnJumpScene();
         }
 
 
@@ -98,12 +131,6 @@ namespace PSPUtil.Singleton
         protected virtual void OnUpdate(float deltaTime) { }
 
         protected virtual void OnFixedUpdata() { }
-
-        void OnDestroy()
-        {
-            OnDestroy2Do();
-            m_Instance = null;
-        }
 
 
         #endregion
