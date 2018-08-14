@@ -62,6 +62,15 @@ namespace PSPUtil.Exensions
         }
 
 
+        //————————————————————————————————————
+
+
+        public static bool IsNullOrEmpty<TKey, TValue>(this Dictionary<TKey, TValue> dict)   // 是否为空或者没数据
+        {
+            return ((dict == null) || (dict.Count == 0));
+        }
+
+
     }
 
 }

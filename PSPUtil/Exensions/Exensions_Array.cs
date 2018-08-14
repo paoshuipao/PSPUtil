@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using JetBrains.Annotations;
 using PSPUtil.StaticUtil;
 
@@ -7,6 +8,8 @@ namespace PSPUtil.Exensions
 {
     public static class Exensions_Array                                         // 数组的扩展方法
     {
+
+        //————————————————————————————————————
 
         public static T[] AddArray<T>(                           //在一个数组上再添加另一个数组
             this T[] firstArray,                                 //原数组
@@ -54,6 +57,66 @@ namespace PSPUtil.Exensions
                 }
             }
         }
+
+
+        //————————————————————————————————————
+
+
+        public static bool IsNullOrEmpty<T>(this T[] array)                    // 是否为空或者没数据
+        {
+            return ((array == null) || (array.Length == 0));
+        }
+
+
+
+        public static T GetRandomElement<T>(this T[] array)                   // 从数组中随机获得一个值
+        {
+            return array[UnityEngine.Random.Range(0, array.Length)];
+        }
+
+
+
+        public static void RandomArray<T>(this T[] array)                     // 随机数组
+        {
+            T temp;
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                // Get a random position lower than i
+                int randomPosition = UnityEngine.Random.Range(0, i);
+                // Swap values
+                temp = array[i];
+                array[i] = array[randomPosition];
+                array[randomPosition] = temp;
+            }
+        }
+
+
+
+
+        public static string ToStr<T>(this T[] array, string splitStr = "\n")// ToString 打印
+        {
+            if (array.IsNullOrEmpty())
+            {
+                return "数组为 Null 或者没有数值";
+            }
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                builder.Append(i);
+                builder.Append("->  ");
+                builder.Append(array[i]);
+                builder.Append(splitStr);
+            }
+            builder.Append(array.Length - 1);
+            builder.Append("->  ");
+            builder.Append(array[array.Length - 1]);
+            return builder.ToString();
+        }
+
+
+
+
+
 
 
 

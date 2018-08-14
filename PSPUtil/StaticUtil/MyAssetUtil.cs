@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -110,6 +111,36 @@ namespace PSPUtil.StaticUtil
         {
             return Application.dataPath.TrimEnd("Assets".ToCharArray()) + assetPath;
         }
+
+
+
+        //————————————————从单一个名称来获取路径————————————————————
+
+
+        public static string GetFullPathInAssets(string specialName)    // Assets\_Scripts_Function\ThirdParty\Ez
+        {
+            string[] paths = Directory.GetDirectories(Application.dataPath, specialName, SearchOption.AllDirectories);
+            if (paths.Length > 1)
+            {
+                MyLog.Red("有多个这个名称的文件夹名 —— " + specialName);
+            }
+            return paths[0].Replace("/", "\\");
+        }
+
+
+        public static string GetAssetPathInAssets(string specialName)     // E:\Pro\NewPSPFrameWork\Assets\_Scripts_Function\ThirdParty\Ez
+        {
+
+            string[] paths = Directory.GetDirectories(Application.dataPath, specialName, SearchOption.AllDirectories);
+            if (paths.Length > 1)
+            {
+                MyLog.Red("有多个这个名称的文件夹名 —— " + specialName);
+            }
+            string directoryPath = paths[0].Replace(Application.dataPath, "Assets");
+            return directoryPath;
+        }
+
+
 
 
     }

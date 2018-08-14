@@ -58,13 +58,17 @@ namespace PSPUtil.StaticUtil
         }
 
 
-        public static Color GetColor(int r,int g,int b, int a)   //根据 rgb 的值来获取Color
+        public static Color GetColor(int r,int g,int b, int a = 256)   //根据 rgb 的值来获取Color
         {
             GetRGB(ref r);
             GetRGB(ref g);
             GetRGB(ref b);
             return new Color((float)r / 255, (float)g / 255, (float)b / 255, (float)a / 255);
         }
+
+
+
+
 
         public static Color GetColor(MyEnumColor enumColor)
         {

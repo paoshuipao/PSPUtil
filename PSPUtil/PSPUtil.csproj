@@ -47,11 +47,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attribute\MyChinaEnumAttribute.cs" />
     <Compile Include="Attribute\MyHeadAttribute.cs" />
     <Compile Include="Ctrl_Coroutine.cs" />
+    <Compile Include="Exensions\Exensions_Bool.cs" />
+    <Compile Include="Exensions\Exensions_Color.cs" />
     <Compile Include="Exensions\Exensions_List.cs" />
-    <Compile Include="Exensions\Exensions_String.cs" />
+    <Compile Include="Exensions\Exensions_StringEasy.cs" />
+    <Compile Include="Exensions\Exensions_StringHard.cs" />
     <Compile Include="Exensions\Exensions_Transform.cs" />
+    <Compile Include="Exensions\Exensions_Type.cs" />
     <Compile Include="Obsert\MyComponent\Func_Base.cs" />
     <Compile Include="Obsert\MyComponent\Func_UI.cs" />
     <Compile Include="Exensions\Exensions_GameObject.cs" />
@@ -76,7 +81,6 @@
     <Compile Include="Obsert\MyResigterUIEvent.cs" />
     <Compile Include="StaticUtil\MyWebDownLoader.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
