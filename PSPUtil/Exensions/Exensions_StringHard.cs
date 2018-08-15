@@ -172,41 +172,53 @@ namespace PSPUtil.Exensions
         }
 
 
-
-        //——————————————————判断正则——————————————————
-
-        public static bool IsdEmailStr(this string emailString)       // 是否 e-mail 格式 
+        /// <summary>
+        /// 如： what is this   -> What Is This
+        /// （上面也能实现，不过这种超简单实现）
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ToTitleCase(this string str)           // 把英文头全部变成大写
         {
-            isInvalid = false;
-            if (string.IsNullOrEmpty(emailString)) { return false; }
+            if (str.IsNullOrEmpty()) { return str; }
 
-            // Use IdnMapping class to convert Unicode domain names. 
-            emailString = Regex.Replace(emailString, @"(@)(.+)$", DomainMapper, RegexOptions.None);
+            // get globalization info
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            TextInfo textInfo = cultureInfo.TextInfo;
 
-            if (isInvalid) { return false; }
-
-            // Return true if strIn is in valid e-mail format. 
-            return Regex.IsMatch(emailString,
-                @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                RegexOptions.IgnoreCase);
+            // convert to title case
+            return textInfo.ToTitleCase(str);
         }
 
 
-
-
-
-        public static bool IsIPAddressStr(this string str)                // 是否 IP 地址
+        /// <summary>
+        /// 如： WhatIsThis  -> What Is This
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string CaseToKongGe(this string text)        // 把英文大写(没空格)的加个空格
         {
-            return Regex.IsMatch(str, @"\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b");
+            if (string.IsNullOrEmpty(text))
+                return "";
+            var newText = new StringBuilder(text.Length * 2);
+            newText.Append(text[0]);
+            for (int i = 1; i < text.Length; i++)
+            {
+                var currentUpper = char.IsUpper(text[i]);
+                var prevUpper = char.IsUpper(text[i - 1]);
+                var nextUpper = (text.Length > i + 1) ? char.IsUpper(text[i + 1]) || char.IsWhiteSpace(text[i + 1]) : prevUpper;
+                var spaceExists = char.IsWhiteSpace(text[i - 1]);
+                if (currentUpper && !spaceExists && (!nextUpper || !prevUpper))
+                    newText.Append(' ');
+                newText.Append(text[i]);
+            }
+            return newText.ToString();
         }
-
-
 
 
         #region 私有
         private static byte[] Keys = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
-        private static bool isInvalid;
+
 
         /// <summary>
         /// 格式化英语字符串
@@ -265,23 +277,6 @@ namespace PSPUtil.Exensions
             return sb.ToString();
         }
 
-
-        private static string DomainMapper(Match match)
-        {
-            // IdnMapping class with default property values.
-            IdnMapping idn = new IdnMapping();
-
-            string domainName = match.Groups[2].Value;
-            try
-            {
-                domainName = idn.GetAscii(domainName);
-            }
-            catch (Exception)
-            {
-                isInvalid = true;
-            }
-            return match.Groups[1].Value + domainName;
-        }
 
         #endregion
 

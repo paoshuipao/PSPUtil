@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 namespace PSPUtil.Exensions
 {
-    public static class Exensions_List                                         // List 集合扩展
+    public static class Exensions_List                // List 集合扩展
     {
 
         // 集合 for 每次加2 
@@ -17,18 +17,18 @@ namespace PSPUtil.Exensions
 
 
         //————————————————————————————————————
-        public static bool IsNullOrEmpty<T>(this List<T> list)                  // 是否为空或者没数据
+        public static bool IsNullOrEmpty<T>(this List<T> list)                      // 是否为空或者没数据
         {
             return ((list == null) || (list.Count == 0));
         }
 
 
-        public static T GetRandomElement<T>(this List<T> list)                 // 从List中随机获得一个值
+        public static T GetRandomElement<T>(this List<T> list)                      // 从List中随机获得一个值
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
         }
 
-        public static void RandomList<T>(this List<T> list)                    // 随机集合
+        public static void RandomList<T>(this List<T> list)                         // 随机集合
         {
             T temp;
             for (int i = list.Count - 1; i > 0; i--)
@@ -42,7 +42,7 @@ namespace PSPUtil.Exensions
             }
         }
 
-        public static string ToStr<T>(this List<T> list, string separator = "\n")// ToString 打印
+        public static string ToStr<T>(this List<T> list, string separator = "\n")   // ToString 打印
         {
             if (list.IsNullOrEmpty())
             {
@@ -61,6 +61,8 @@ namespace PSPUtil.Exensions
             builder.Append(list[list.Count - 1]);
             return builder.ToString();
         }
+
+
 
 
     }

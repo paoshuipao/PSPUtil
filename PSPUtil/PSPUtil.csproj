@@ -52,11 +52,14 @@
     <Compile Include="Ctrl_Coroutine.cs" />
     <Compile Include="Exensions\Exensions_Bool.cs" />
     <Compile Include="Exensions\Exensions_Color.cs" />
+    <Compile Include="Exensions\Exensions_IList.cs" />
     <Compile Include="Exensions\Exensions_List.cs" />
     <Compile Include="Exensions\Exensions_StringEasy.cs" />
     <Compile Include="Exensions\Exensions_StringHard.cs" />
+    <Compile Include="Exensions\Exensions_StringRegex.cs" />
     <Compile Include="Exensions\Exensions_Transform.cs" />
     <Compile Include="Exensions\Exensions_Type.cs" />
+    <Compile Include="Exensions\Exensions_Vector.cs" />
     <Compile Include="Obsert\MyComponent\Func_Base.cs" />
     <Compile Include="Obsert\MyComponent\Func_UI.cs" />
     <Compile Include="Exensions\Exensions_GameObject.cs" />
