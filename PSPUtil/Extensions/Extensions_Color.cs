@@ -1,9 +1,9 @@
 ﻿
 using UnityEngine;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_Color
+    public static class Extensions_Color
     {
 
         public static Color Lighter(this Color color)                    // 亮一点点
@@ -54,9 +54,6 @@ namespace PSPUtil.Exensions
         {
             return new Color(1 - color.r, 1 - color.g, 1 - color.b, color.a);
         }
-
-
-
 
 
         #region 私有

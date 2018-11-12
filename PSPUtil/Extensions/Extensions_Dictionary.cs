@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using PSPUtil.StaticUtil;
+using System.Text;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_Dictionary                      // 字典 扩展方法
+    public static class Extensions_Dictionary                      // 字典 扩展方法
     {
 
         //移除指定的
@@ -62,13 +63,49 @@ namespace PSPUtil.Exensions
         }
 
 
-        //————————————————————————————————————
-
 
         public static bool IsNullOrEmpty<TKey, TValue>(this Dictionary<TKey, TValue> dict)   // 是否为空或者没数据
         {
             return ((dict == null) || (dict.Count == 0));
         }
+
+
+
+
+
+
+        //——————————————————ToString——————————————————
+
+
+        public static string ToStr<TKey, TValue>(this Dictionary<TKey, TValue> dict, string separator = "\n")   // ToString 打印
+        {
+            if (dict.IsNullOrEmpty())
+            {
+                return "集合为 Null 或者没有数值";
+            }
+            StringBuilder sb = new StringBuilder();
+            List<TKey> keyList =new List<TKey>(dict.Keys);
+
+            for (int i = 0; i < keyList.Count - 1; i++)
+            {
+                TKey key = keyList[i];
+                sb.Append(key);
+                sb.Append("->  ");
+                sb.Append(dict[key]);
+                sb.Append(separator);
+            }
+            TKey lastKey = keyList[keyList.Count - 1];
+            sb.Append(lastKey);
+            sb.Append("->  ");
+            sb.Append(dict[lastKey]);
+            return sb.ToString();
+        }
+
+
+
+
+
+
 
 
     }

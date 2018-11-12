@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using JetBrains.Annotations;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_List                // List 集合扩展
+    public static class Extensions_List                // List 集合扩展
     {
 
         // 集合 for 每次加2 
@@ -41,6 +41,11 @@ namespace PSPUtil.Exensions
                 list[randomPosition] = temp;
             }
         }
+
+
+
+        //——————————————————ToString——————————————————
+
 
         public static string ToStr<T>(this List<T> list, string separator = "\n")   // ToString 打印
         {

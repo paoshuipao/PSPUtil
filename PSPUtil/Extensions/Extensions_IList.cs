@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_IList
+    public static class Extensions_IList
     {
-
 
         public static bool IsNullOrEmpty<T>(this IList<T> items)      // 是否为空或者没有数据
         {
             return items == null || !items.Any();
         }
-
-
 
 
         public static void RandomIList<T>(this IList<T> list)         // 随机打乱这个集合

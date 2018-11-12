@@ -1,9 +1,9 @@
 ﻿using PSPUtil.StaticUtil;
 using UnityEngine;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_Transform                                        
+    public static class Extensions_Transform                                        
     {
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace PSPUtil.Exensions
             T tmp = transform.GetComponent<T>();
             if (null == tmp)
             {
-                MyLog.Red("没有添加过这个组件 —— " + typeof(T), transform);
+                MyLog.Red(transform.name+"  没有添加过这个组件 —— " + typeof(T));
             }
             return tmp;
         }

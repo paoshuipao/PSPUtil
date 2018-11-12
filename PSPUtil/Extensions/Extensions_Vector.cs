@@ -3,9 +3,9 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_Vector
+    public static class Extensions_Vector
     {
 
         //——————————————————Vector2——————————————————

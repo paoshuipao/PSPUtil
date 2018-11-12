@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using PSPUtil.Exensions;
+using PSPUtil.Extensions;
 using UnityEngine;
 
 namespace PSPUtil.StaticUtil

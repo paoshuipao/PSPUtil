@@ -1,7 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using PSPUtil.StaticUtil;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
     public enum StringGeShi
     {
@@ -11,7 +12,7 @@ namespace PSPUtil.Exensions
     }
 
 
-    public static class Exensions_StringEasy
+    public static class Extensions_StringEasy
     {
 
         //——————————————————富文本 扩展——————————————————
@@ -446,10 +447,111 @@ namespace PSPUtil.Exensions
         #endregion
 
 
+
+        //————————————————————————————————————
+
         public static bool IsNullOrEmpty(this string str)
         {
             return string.IsNullOrEmpty(str);
         }
+
+
+        /// <summary>
+        /// 是否包含这个字符串 
+        /// </summary>
+        /// <param name="source">原字符串</param>
+        /// <param name="toCheck">是否包含的字符串</param>
+        /// <param name="comparisonType">例如 StringComparison.OrdinalIgnoreCase ->可以包含大写</param>
+        /// <returns></returns>
+        public static bool IsContains(this string source, string toCheck, StringComparison comparisonType)
+        {
+            return source.IndexOf(toCheck, comparisonType) >= 0;
+        }
+
+
+        /// <summary>
+        /// 如果此字符串为null，为空或仅包含空格，则返回 true
+        /// </summary>
+        /// <param name="str">要检查的字符串</param>
+        public static bool IsNullOrWhitespace(this string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (char.IsWhiteSpace(str[i]) == false)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+
+
+        //——————————————————关于 value 在原字符串的应用——————————————————
+
+
+        /// <summary>
+        /// 系统就是没有用 string 分割的
+        /// </summary>
+        public static string[] Split(this string s, string value, StringSplitOptions splitOptions = StringSplitOptions.None)
+        {
+            return s.Split(new string[] { value }, splitOptions);
+        }
+
+
+        /// <summary>
+        /// 如：abc123cdf123  -> 2
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static int GetValueCount(this string str, string value)              // 获得 value 在字符串中的数量
+        {
+            int occurrences = 0;
+            int startingIndex = 0;
+
+            while ((startingIndex = str.IndexOf(value, startingIndex, StringComparison.Ordinal)) >= 0)
+            {
+                ++occurrences;
+                ++startingIndex;
+            }
+
+            return occurrences;
+        }
+
+
+        /// <summary>
+        /// 如： abc123cdf123  -> 找到123 的第 num 个索引位置 -> num = 1   -> 3 ，找不到返回 -1
+        /// </summary>
+        /// <param name="target">原字符串</param>
+        /// <param name="value">要找的值</param>
+        /// <param name="num">第几个  如 num = 2  -> 9</param>
+        /// <returns></returns>
+        public static int IndexOfValue(this string target, string value, int num)   // value 在字符串的索引
+        {
+
+            string[] result = target.Split(value);
+            num--;
+            if (num >= 0 && num < result.Length)
+            {
+                int index = 0;
+                for (int i = 0; i <= num; i++)
+                {
+                    index += result[i].Length + value.Length;
+                }
+                return index - value.Length;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+
 
     }
 

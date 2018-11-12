@@ -40,8 +40,6 @@ namespace PSPUtil.StaticUtil
         }
 
 
-
-
         // 截取Assets前面的路径：fullName:E://abc/Assets/xx ->Assets/xx  返回：E://abc/
         public static string GetAssetsProPath(string fullName)
         {
@@ -107,7 +105,7 @@ namespace PSPUtil.StaticUtil
         /*-------------------------------从全路径 得到 string ---------------------------------------------------*/
 
 
-        public static string GetFullName(string assetPath)
+        public static string GetFullPath(string assetPath)
         {
             return Application.dataPath.TrimEnd("Assets".ToCharArray()) + assetPath;
         }

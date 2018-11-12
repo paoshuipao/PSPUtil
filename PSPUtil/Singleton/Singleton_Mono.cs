@@ -124,6 +124,11 @@ namespace PSPUtil.Singleton
         }
 
 
+
+
+
+
+
         protected virtual void OnAwake() { }
 
         protected virtual void OnStart() { }

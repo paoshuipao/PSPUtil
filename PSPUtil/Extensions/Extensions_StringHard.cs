@@ -3,12 +3,11 @@ using System.Globalization;
 using System.Text;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text.RegularExpressions;
 using PSPUtil.StaticUtil;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_StringHard
+    public static class Extensions_StringHard
     {
 
         //——————————————————加密——————————————————
@@ -155,7 +154,7 @@ namespace PSPUtil.Exensions
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static string ChinaFormat(this string str)
+        public static string TitleCase_ChinaFormat(this string str)          // 中文或英文格式化
         {
             StringGeShi geShi = IsChinaStr(str);
             string tmp = str;
@@ -178,7 +177,7 @@ namespace PSPUtil.Exensions
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static string ToTitleCase(this string str)           // 把英文头全部变成大写
+        public static string TitleCase_HeadUpper(this string str)          // 把英文头全部变成大写
         {
             if (str.IsNullOrEmpty()) { return str; }
 
@@ -196,7 +195,7 @@ namespace PSPUtil.Exensions
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string CaseToKongGe(this string text)        // 把英文大写(没空格)的加个空格
+        public static string TitleCase_AddKongGe(this string text)        // 把英文大写(没空格)的加个空格
         {
             if (string.IsNullOrEmpty(text))
                 return "";
@@ -213,6 +212,36 @@ namespace PSPUtil.Exensions
                 newText.Append(text[i]);
             }
             return newText.ToString();
+        }
+
+
+        /// <summary>
+        /// 如： what_is_This => WhatIsThis
+        /// </summary>
+        public static string TitleCase_NoBottomLine(this string input)   // 把英文带下划线的去除
+        {
+            var builder = new StringBuilder();
+            for (int i = 0; i < input.Length; i++)
+            {
+                char current = input[i];
+                if (current == '_' && i + 1 < input.Length)
+                {
+                    char next = input[i + 1];
+                    if (char.IsLower(next))
+                    {
+                        next = char.ToUpper(next, CultureInfo.InvariantCulture);
+                    }
+
+                    builder.Append(next);
+                    i++;
+                }
+                else
+                {
+                    builder.Append(current);
+                }
+            }
+
+            return builder.ToString();
         }
 
 

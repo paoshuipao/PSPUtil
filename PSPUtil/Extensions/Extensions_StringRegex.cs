@@ -3,10 +3,17 @@ using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_StringRegex            // string 扩展 （利用正则）
+    public static class Extensions_StringRegex            // string 扩展 （利用正则）
     {
+
+        public static bool RegexMatch(this string a, string b)
+        {
+            var myRegExp = new Regex(a);
+            return myRegExp.Match(b).Success;
+        }
+
 
         //——————————————————利用正则 ->判断——————————————————
 
@@ -59,6 +66,23 @@ namespace PSPUtil.Exensions
         {
             return Regex.Replace(str, @"\s", "");
         }
+
+
+
+        /// <summary>
+        /// 如：<param> html 中间 </param>   ->  html 中间
+        /// </summary>
+        public static string RemvoeHtmlKuang(this string source)         // 删除 HTML框 
+        {
+            return Regex.Replace(source, "<.*?>", string.Empty);
+        }
+
+
+
+
+
+
+
 
         #region 私有
         private static bool isInvalid;

@@ -1,5 +1,5 @@
 ﻿/*
-using PSPUtil.Exensions;
+using PSPUtil.Extensions;
 using PSPUtil.StaticUtil;
 using UnityEngine;
 

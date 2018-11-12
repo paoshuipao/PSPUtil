@@ -73,6 +73,27 @@ namespace PSPUtil.StaticUtil
 
         }
 
+        public static void FileRename(FileInfo fileInfo, string rename)                // 重改名文件
+        {
+            string path = fileInfo.FullName.Replace(@"\", "/");
+            int tmpCount = path.LastIndexOf("/", StringComparison.Ordinal);
+            string newFolderPath = path.Substring(0, tmpCount + 1);    // 前路径
+
+
+            string newPath = newFolderPath + rename;
+            string tmpPath = newPath;
+            int index = 0;
+            while (File.Exists(tmpPath + fileInfo.Extension))
+            {
+                index++;
+                tmpPath = newPath +"_"+ index;
+            }
+
+            File.Move(path, tmpPath+ fileInfo.Extension);
+
+        }
+
+
 
         public static string GetUpperFile(string path)                         // 获得上一级文件 C:/abc/a.txt => C:/a.txt
         {

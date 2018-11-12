@@ -12,6 +12,12 @@ namespace PSPUtil.Attribute
         public string EnumTypeName { get; private set; }             // 枚举左边的中文名
 
 
+        public MyChinaEnumAttribute()
+        {
+        }
+
+
+
 
         public MyChinaEnumAttribute(string enumTypeName)
         {

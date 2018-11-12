@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using JetBrains.Annotations;
 using PSPUtil.StaticUtil;
 
-namespace PSPUtil.Exensions
+namespace PSPUtil.Extensions
 {
-    public static class Exensions_Array                                         // 数组的扩展方法
+    public static class Extensions_Array                                         // 数组的扩展方法
     {
 
         //————————————————————————————————————
@@ -91,6 +90,10 @@ namespace PSPUtil.Exensions
         }
 
 
+
+
+
+        //——————————————————ToString——————————————————
 
 
         public static string ToStr<T>(this T[] array, string splitStr = "\n")// ToString 打印
